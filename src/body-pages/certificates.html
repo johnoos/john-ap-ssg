@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Certificates
+---
+
+<div class="doc-grid">
+  {% for cert in certificates %}
+  <div class="doc-card">
+    <h3>{{ cert.name }}</h3>
+    
+    <!-- THE PREVIEW IMAGE: Page 1 of your PDF -->
+    <img src="{{ cert.preview }}" alt="{{ cert.name }} Preview" class="doc-preview">
+
+    <div class="button-group">
+      <!-- VIEW BUTTON: Uses the JS listener in your base layout -->
+      <button class="btn-view" data-file="{{ cert.pdf }}">View PDF</button>
+      
+      <!-- DOWNLOAD BUTTON: Uses the JS listener in your base layout -->
+      <button class="btn-download" data-file="{{ cert.pdf }}">Download</button>
+    </div>
+  </div>
+  {% endfor %}
+</div>

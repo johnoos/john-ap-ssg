@@ -1,0 +1,40 @@
+<!-- src/_includes/base.njk -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>{% include "header.html" %}</header>
+    <aside>{% include "sidebar-menu.html" %}</aside>
+    
+    <main>
+        {{ content | safe }} <!-- This is where your page content will go -->
+    </main>
+
+    <footer>{% include "footer.html" %}</footer>
+<!-- This script handles only runtime interactivity -->
+    <script>
+        function toggleMenu() {
+            document.querySelector('.sidebar-wrapper-style').classList.toggle('open');
+        }
+
+        document.addEventListener('click', (event) => {
+            const viewBtn = event.target.closest('.btn-view');
+            const downloadBtn = event.target.closest('.btn-download');
+
+            if (viewBtn) {
+                window.open(viewBtn.dataset.file, '_blank');
+            } else if (downloadBtn) {
+                const link = document.createElement('a');
+                link.href = downloadBtn.dataset.file;
+                link.download = downloadBtn.dataset.file.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        });
+    </script>    
+</body>
+</html>
