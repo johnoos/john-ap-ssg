@@ -9,14 +9,14 @@ title: Certificates
     <h3>{{ cert.name }}</h3>
     
     <!-- THE PREVIEW IMAGE: Page 1 of your PDF -->
-    <img src="{{ cert.preview }}" alt="{{ cert.name }} Preview" class="doc-preview">
+    <img src="src/assets/img/previews/{{ cert.filename }}.png" alt="{{ cert.name }} preview" class="doc-preview">
 
     <div class="button-group">
       <!-- VIEW BUTTON: Uses the JS listener in your base layout -->
-      <button class="btn-view" data-file="{{ cert.pdf }}">View PDF</button>
+      <button class="btn-view" data-file="src/assets/pdfs/{{ cert.filename }}.pdf">View PDF</button>
       
       <!-- DOWNLOAD BUTTON: Uses the JS listener in your base layout -->
-      <button class="btn-download" data-file="{{ cert.pdf }}">Download</button>
+      <button class="btn-download" data-file="src/assets/pdfs/{{ cert.filename }}.pdf">Download</button>
     </div>
   </div>
   {% endfor %}

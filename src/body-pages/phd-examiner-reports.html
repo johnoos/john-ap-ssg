@@ -1,40 +1,25 @@
-  ---
+---
 layout: layout.njk
 title: PhD examiner reports
 ---
   
   <section id="phd-examiner-reports" class="doc-grid">
-
+    {% for report in phd-examiner-reports}
     <article class="doc-card"> 
       <div class="doc-preview">
         <!-- PNG Preview Image (Page 1) -->
-        <img src="resources/phd-examiner-previews/antoni.png" alt="PhD examiner report preview" loading="lazy">
+        <img src="src/assets/img/previews/{{ report.filename }}.png" alt="PhD examiner report preview" loading="lazy">
       </div>
-      <div class="doc-info">
-        <h3>Report by Dr. Antoni Schonken</h3>
+      <div class="doc-title">
+        <h3>Report by {{ report.examiner }}</h3>
         <div class="doc-actions">
           <!-- Opens original PDF in new tab -->
-          <a href="resources/phd-examiner-reports/antoni.pdf" target="_blank" class="btn-view">View</a>
+          <a href="src/assets/pdfs/{{ report.filename }}.pdf" target="_blank" class="btn-view">View</a>
           <!-- Downloads the original PDF -->
-          <a href="resources/phd-examiner-reports/antoni.pdf" download class="btn-download">Download</a>
+          <a href="src/assets/pdfs/{{ report.filename }}.pdf" download class="btn-download">Download</a>
         </div>
       </div>
     </article>
-
-    <article class="doc-card">
-      <div class="doc-preview">
-        <!-- PNG Preview Image (Page 1) -->
-        <img src="resources/phd-examiner-previews/theo.png" alt="PhD examiner report preview" loading="lazy">
-      </div>
-      <div class="doc-info">
-        <h3>Report by Prof. Theo Van Wyk</h3>
-        <div class="doc-actions">
-          <!-- Opens original PDF in new tab -->
-          <a href="resources/phd-examiner-reports/theo.pdf" target="_blank" class="btn-view">View</a>
-          <!-- Downloads the original PDF -->
-          <a href="resources/phd-examiner-reports/theo.pdf" download class="btn-download">Download</a>
-        </div>
-      </div>
-    </article>
+    {% endfor %}
 
   </section>

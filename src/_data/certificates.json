@@ -1,37 +1,30 @@
 [
   {
     "name": "PhD Music (2025)",
-    "preview": "resources/certificate-previews/phd-eng.png",
-    "pdf": "resources/certificate-pdfs/phd-eng.pdf"
+    "filename": "phd-eng"
   },
   {
     "name": "MMus Organ (2022)",
-    "preview": "resources/certificate-previews/masters-eng.png",
-    "pdf": "resources/certificate-pdfs/masters-eng.pdf"
+    "filename": "mmus-eng"
   },
   {
     "name": "BMusHons Organ (cum laude) (2019)",
-    "preview": "resources/certificate-previews/honours-eng.png",
-    "pdf": "resources/certificate-pdfs/honours-eng.pdf"
+    "filename": "honours-eng"
   },
   {
     "name": "BSc Math, MathStat, Comp Sc (1978)",
-    "preview": "resources/certificate-previews/bsc-latin.png",
-    "pdf": "resources/certificate-pdfs/bsc-latin.pdf"
+    "filename": "bsc-latin"
   },
   {
     "name": "ATCL Diploma in Piano (1975)",
-    "preview": "resources/certificate-previews/atcl-piano-eng.png",
-    "pdf": "resources/certificate-pdfs/atcl-piano-eng.pdf"
+    "filename": "atcl-piano-eng"
   },
   {
     "name": "Trinity College of London Organ Grade 8 (with merit)",
-    "preview": "resources/certificate-previews/tcl-grade8-organ-eng.png",
-    "pdf": "resources/certificate-pdfs/tcl-grade8-organ-eng.pdf"
+    "filename": "tcl-grade8-organ-eng"
   },
   {
     "name": "Matric (with merit) (1972)",
-    "preview": "resources/certificate-previews/matric-eng.png",
-    "pdf": "resources/certificate-pdfs/matric-eng.pdf"
+    "filename": "matric-eng"
   }
 ]

@@ -3,23 +3,24 @@ layout: layout.njk
 title: Publications
 ---
 
-<section id="phd-examiner-reports" class="container">
-    <h2>A</h2>
+<section id="publications" class="container">
 
+    {% for pub in publications %}
     <article class="pub">
     <div class="pub-preview">
       <!-- PNG Preview Image (Page 1) -->
-      <img src="resources/publications/resources/publications/VisualAge for Smalltalk 1997.png" alt="Publication preview" loading="lazy">
+      <img src="assets/img/previews/{{ pub.filename }}.png" alt="Publication preview" loading="lazy">
     </div>
     <div class="pub-show">
-      <h3>A</h3>
+      <h3>{{ pub.title }}</h3>
       <div class="rpt-actions">
         <!-- Opens original PDF in new tab -->
-        <a href="resources/phd-examiner-reports/antoni.docx" target="_blank" class="btn-view">View</a>
+        <a href="assets/pdfs/{{ pub.filename }}.pdf" target="_blank" class="btn-view">View</a>
         <!-- Downloads the original PDF -->
-        <a href="resources/phd-examiner-reports/antoni.docx" download class="btn-download">Download</a>
+        <a href="assets/pdfs/{{ pub.filename }}.pdf" download class="btn-download">Download</a>
       </div>
     </div>
   </article>
+  {% endfor %}
 
 </section>  

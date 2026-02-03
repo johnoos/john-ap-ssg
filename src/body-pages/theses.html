@@ -3,50 +3,24 @@ layout: layout.njk
 title: Theses
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr John Oosthuizen's Academic Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+<div class="doc-grid">
+  {% for thesis in theses %}
+  <div class="doc-card">
+    <article class="thesis">
+    <div class="doc-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="assets/img/previews/{{ thesis.filename }}.png" alt="Thesis preview" loading="lazy">
+    </div>
+    <div class="doc-title">
+      <h3>{{ thesis.degree }}</h3>
+      <div class="rpt-actions">
+        <!-- Opens original PDF in new tab -->
+        <a href="assets/pdfs/{{ thesis.filename }}.pdf" target="_blank" class="btn-view">View</a>
+        <!-- Downloads the original PDF -->
+        <a href="assets/pdfs/{{ thesis.filename }}.pdf" download class="btn-download">Download</a>
+      </div>
+    </div>
+  </article>
+  {% endfor %}
 
-<body>
-
-<header>
-  <h1>Dr John Oosthuizen’s Academic Portfolio</h1>
-  <nav>
-    <ul class="menu">
-      <li><a href="index.html">Certificates</a></li>
-      <li><a href="transcripts.html">Transcripts</a></li>
-      <li><a href="theses.html">Theses</a></li>
-      <li><a href="publications.html">Publications</a></li>
-      <li><a href="references.html">References</a></li>
-      <li><a href="phd-examiner-reports.html">PhD examiner reports</a></li>
-      <li><a href="other.html">Other</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-
-  <section class="container">
-    <h2>stellenbosch University academic transcript (2016-2025)</h2>
-    <!-- PNG or PDF block here -->
-  </section>
-
-  <section class="container">
-    <h2>Advanced Music Theory during International Student Exchange: University of North Carolina in Greensboro academic transcript (2020)</h2>
-    <!-- PNG or PDF block here -->
-  </section>
-
-</main>
-
-<footer>
-  <p>&copy; 2025 Dr John Oosthuizen</p>
-  <p>&nbsp; 29 December 2025</p>
-</footer>
-
-</body>
-</html>
+</section>  

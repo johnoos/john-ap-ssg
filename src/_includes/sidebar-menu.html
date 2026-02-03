@@ -5,11 +5,11 @@ title: Sidebar items
 
 <nav>
   <ul>
-    {% for item in sidebar-items %}
-    <li><a href="/{{ item.type }}/" 
-      class="sidebar-item-style" {% if page.url == '{{ item.type }}' %}active{% endif %}>
+    {% for item in sidebar %}
+    <li><a href="/{{ item.name }}/" 
+      class="sidebar-item-style" {% if page.url == item.name %}active{% endif %}>
         {{ item.type }}
     </a></li>
-    { % endfor %}
+    {% endfor %}
   </ul>
 </nav>
