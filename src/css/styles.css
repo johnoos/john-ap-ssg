@@ -1,0 +1,379 @@
+:root {
+  --bg-color: #073f7c0d; /* final background colour */
+  --border-color: hsl(0, 0%, 18%);
+  --view-button-gray: hsl(0, 1%, 84%);
+  --download-button-blue: hsla(211, 71%, 68%, 0.333);
+}
+  
+/* LOCK VIEWPORT & FORCE FLEX COLUMN */
+html, body {
+  height: 95svh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents double scrollbars */
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat, Roboto, Lato, "Open Sans", sans-serif;
+}
+
+body {
+  /* CONTROL COLOUR INDEPENDENTLY */
+  /* Use RGBA to set your tint colour and its specific faintness (e.g., 0.1) */ 
+  min-height: 100vh;
+  position: relative;
+  background: transparent;
+}
+
+/* LAYER 1: The Tint (Bottom) */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -2; /* Deepest layer */
+  background-color: var(--bg-color);
+}
+
+.outer-wrapper-style {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-color);
+}
+
+.logo {
+  width: 110px; 
+  display: flex; 
+  justify-content: center; /* Vertical center */
+}
+
+.top-panel-style {
+  /* background: var(--bg-color); */
+  height: 120px;
+  margin: 0;
+  Padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't add to the total height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* middle wrapper style */
+.middle-wrapper-style {
+  flex: 1; /* Fills all space between header and footer */
+  display: flex;
+  /* flex-direction: row; */
+  overflow: hidden; /* Ensures it doesn't push the footer down */
+  /* background: var(--bg); */
+  gap: 20px;
+  align-items: stretch;
+}
+
+.sidebar-wrapper-style {
+  /*  flex: 1; */
+  display: flex;
+  background: white;
+  flex: 0 0 250px;
+  border-radius: 20px;
+  border: 2px solid var(--border-color); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  overflow: hidden; /* ✅ clips scrollbar to rounded corners */
+}  
+
+.sidebar-panel-style {
+  /* flex: 0 0 250px; */
+  background: white;
+  overflow-y: auto; /* ✅ scrollbar lives here now */
+  margin: 5px;
+  scrollbar-gutter: stable;
+  height: auto;     /* don’t lock height */
+}
+
+.sidebar-panel-style a { 
+ color: #000000 !important;
+ text-decoration: none;
+ font-size: 1.0rem;       /* Matches sidebar container size */
+}
+
+/* Removes bullets and default browser indentation */
+.sidebar-panel-style ul {
+ list-style-type: none; /* Removes the bullets */
+ padding: 0;           /* Removes default left padding */
+ text-align: left;
+ margin: 15px;      /* Increases spacing around the items */
+ flex: 0 0 230px;   /* Keep original width */
+}
+
+.sidebar-panel-style li {
+ line-height: 1.5;
+}
+
+/* Base style for sidebar items */
+.sidebar-item-style {
+    display: block;
+    padding: 12px 20px;
+    color: #555;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent; /* invisible marker for active state */
+}
+
+/* Hover state for better interactivity */
+.sidebar-item-style:hover {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+/* Active state - triggered when the .active class is added via JS */
+.sidebar-item-style.active {
+    background-color: #e9ecef; /* Light grey background */
+    color: #007bff;            /* Primary brand colour (e.g., Blue) */
+    font-weight: 600;          /* Subtle bold for emphasis */
+    border-left-color: #007bff; /* Visual bar on the left */
+}
+
+/* content area */
+.content-wrapper-style {
+  /* flex: 1; */
+  display: flex;
+  background: white;
+  flex: 1 1 auto;
+  border-radius: 20px;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin: 20px 20px 20px 0;
+  overflow: hidden; /* ✅ clips scrollbar to rounded corners */
+}
+
+/* Inner scroll container */
+.content-panel-style {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* ✅ scrollbar lives here now */
+  margin: 20px;
+  background: white;
+  scrollbar-gutter: stable;
+}
+
+/* FOOTER */
+.bottom-panel-style {
+  /* background: var(--bg-color); */
+  margin: 0;
+  Padding: 0;
+  box-sizing: border-box; /* Ensures padding doesn't add to the total height */
+  flex-shrink: 0; /* Prevents the footer from getting squashed */
+  height: 80px;
+  z-index: 10;
+}
+
+/* DESKTOP REFINEMENT */
+@media (min-width: 768px) {
+  .middle-wrapper-style {
+    /* Set top padding to 0 for flush look, keep bottom for visible corners */
+    padding: 0 20px 20px 20px; 
+  }
+}
+
+/* ANIMATIONS */
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.doc-grid { 
+ display: grid;
+ /* Automatically fits columns based on 300px min-width */
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 2rem;
+ padding: 2rem;
+ background-color: white;
+}
+
+.doc-card {
+ background: #dfdfdf;
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+ display: flex;
+ flex-direction: column;
+}
+
+.doc-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.doc-preview img {
+ width: 100%;
+ aspect-ratio: 4 / 3; /* Uniform height for all previews */
+ object-fit: cover;
+ border-bottom: 1px solid #eee;
+}
+
+.doc-title {
+ padding: 1.0rem;
+ text-align: center;
+}
+
+.doc-title h3 {
+ padding-top: 0; 
+ font-size: 1.0rem;
+ margin-bottom: 1rem;
+ color: #454545;
+}
+
+.doc-actions {
+ display: flex;
+ gap: 10px;
+ justify-content: center;
+ background: #dfdfdf; 
+}
+
+/* Button Styles */
+.btn-view, .btn-download {
+ padding: 10px 18px;
+ border-radius: 6px;
+ text-decoration: none;
+ font-size: 0.85rem;
+ font-weight: 600;
+ transition: opacity 0.2s;
+}
+
+.btn-view {
+ background-color: var(--view-button-gray);
+ color: #303538;
+}
+
+.btn-download {
+ background-color: var(--download-button-blue);
+ color: #213a50;
+ vertical-align: middle;
+}
+
+.btn-view:hover, .btn-download:hover {
+ opacity: 0.85;
+}
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 768px) {
+    /* Stack the layout vertically */
+    .middle-wrapper-style {
+        flex-direction: column;
+    }
+
+    /* Transform the sidebar into a top-bar */
+    #nav-sidebar {
+        width: 100%;
+        height: auto;
+        display: flex; /* Arrange menu items horizontally */
+        overflow-x: auto; /* Allow horizontal scrolling if items overflow */
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    /* Adjust sidebar items for horizontal layout */
+    .sidebar-item-style {
+        flex: 1; /* Distribute space evenly */
+        text-align: center;
+        padding: 10px 5px;
+        border-left: none;
+        border-bottom: 3px solid transparent; /* Move active marker to bottom */
+        font-size: 0.9rem;
+    }
+
+    /* Update active state for mobile */
+    .sidebar-item-style.active {
+        border-left-color: transparent;
+        border-bottom-color: #007bff; /* Underline instead of side-bar */
+        background-color: transparent;
+    }
+}
+
+/* --- MOBILE DRAWER SYSTEM --- */
+
+@media screen and (max-width: 768px) {
+    /* 1. Allow the body to scroll if needed, but keep outer wrapper constrained */
+    html, body {
+        overflow: auto; 
+    }
+
+    /* 2. Stack the layout */
+    .middle-wrapper-style {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* 3. Transform Sidebar into an Off-Canvas Drawer */
+    .sidebar-wrapper-style {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Hidden by default */
+        width: 250px;
+        height: 100vh;
+        margin: 0;
+        z-index: 999;
+        transition: left 0.3s ease-in-out;
+        border-radius: 0 20px 20px 0; /* Rounded only on the right */
+    }
+
+    /* 4. This class is toggled by the JS toggleMenu() function */
+    .sidebar-wrapper-style.open {
+        left: 0;
+    }
+
+    /* 5. Adjust Content Area for mobile */
+    .content-wrapper-style {
+        margin: 10px; /* Give it some breathing room */
+        height: calc(100vh - 220px); /* Adjust based on your header/footer height */
+    }
+
+    /* 6. Grid adjustment for certificates */
+    .doc-grid {
+        grid-template-columns: 1fr; /* Single column on phones */
+        padding: 1rem;
+    }
+}
+
+/* --- MENU BUTTON STYLE --- */
+/* Add this so the button only shows on mobile */
+.menu-toggle {
+    display: none;
+    padding: 10px 20px;
+    background: var(--download-button-blue);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show only on mobile */
+    }
+    .title-lines {
+      line-height: 1.05;
+    }
+}
+
+.title-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center */
+  align-items: left;    
+  /* height: 100px;            Ensure the cell has a defined height */
+}
