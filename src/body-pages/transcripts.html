@@ -4,56 +4,23 @@ title: Academic transcripts
 ---
 
 <section class="doc-grid">
-  
+  {% for transcript in transcripts %}
   <!-- SU transcript preview -->
   <article class="doc-card">
     <div class="doc-preview">
       <!-- PNG Preview Image (Page 1) -->
-      <img src="resources/transcript-previews/su-transcript.png" alt="SU transcript preview" loading="lazy">
+      <img src="src/assets/img/previews/{{ transcript.institution }}.png" alt="Transcript preview" loading="lazy">
     </div>
     <div class="doc-title">
-      <h3>Stellenbosch University transcript (2016-2025)</h3>
+      <h3>{{ transcript.intitution }}</h3>
       <div class="doc-actions">
         <!-- Opens original PDF in new tab -->
-        <a href="resources/transcript-pdfs/su-transcript.pdf" target="_blank" class="btn-view">View</a>
+        <a href="src/assets/pdfs/{{ transcript.filename }}.pdf" target="_blank" class="btn-view">View</a>
         <!-- Downloads the original PDF -->
-        <a href="resources/transcript-pdfs/su-transcript.pdf" download class="btn-download">Download</a>
+        <a href="src/assets/pdfs/{{ transcript.filename }}.pdf" download class="btn-download">Download</a>
       </div>
     </div>
   </article>
-
-  <!-- UNCG transcript preview -->
-  <article class="doc-card">
-    <div class="doc-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="resources/transcript-previews/uncg-transcript.png" alt="UNCG transcript preview" loading="lazy">
-    </div>
-    <div class="doc-title">
-      <h3>University of North Carolina academic transcript (2020)</h3>
-      <div class="doc-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="resources/transcript-pdfs/uncg-transcript.pdf" target="_blank" class="btn-view">View</a>
-        <!-- Downloads the original PDF -->
-        <a href="resources/transcript-pdfs/uncg-transcript.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- UKZN transcript -->
-  <article class="doc-card">
-    <div class="doc-preview">
-      <!-- PNG Preview Image (Page 1) -->
-      <img src="resources/transcript-previews/ukzn-transcript.png" alt="UKZN transcript preview" loading="lazy">
-    </div>
-    <div class="doc-title">
-      <h3>University of KwaZulu-Natal (1974-1977)</h3>
-      <div class="doc-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="resources/transcript-pdfs/ukzn-transcript.pdf" target="_blank" class="btn-view">View</a>
-        <!-- Downloads the original PDF -->
-        <a href="resources/transcript-pdfs/ukzn-transcript.pdf" download class="btn-download">Download</a>
-      </div>
-    </div>
-  </article>
+  {% endfor}
 
 </section>

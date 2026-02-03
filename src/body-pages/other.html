@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Other documents
+---
+
+<div class="doc-grid">
+  {% for doc in other %}
+  <div class="doc-card">
+    <h3>{{ doc.name }}</h3>
+    
+    <!-- THE PREVIEW IMAGE: Page 1 of your PDF -->
+    <img src="src/assets/img/previews/{{ doc.filename }}.png" alt="{{ cert.name }} preview" class="doc-preview">
+
+    <div class="button-group">
+      <!-- VIEW BUTTON: Uses the JS listener in your base layout -->
+      <button class="btn-view" data-file="src/assets/pdfs/{{ doc.filename }}.pdf">View PDF</button>
+      
+      <!-- DOWNLOAD BUTTON: Uses the JS listener in your base layout -->
+      <button class="btn-download" data-file="src/assets/pdfs/{{ doc.filename }}.pdf">Download</button>
+    </div>
+  </div>
+  {% endfor %}
+</div>

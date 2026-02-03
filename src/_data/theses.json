@@ -1,18 +1,18 @@
 [
     {
         "degree": "PhD Music (2025)",
-        "filename": "phd-music-eng"
+        "filename": "phd-dissertation-2025"
     },
     {
         "degree": "MMus Organ (2022)",
-        "filename": "mmus-organ-eng"
+        "filename": "mmus-thesis-2022"
     },
     {
         "degree": "BMus Honours (2019)",
-        "filename": "honours-organ-eng"
+        "filename": "honours-assignment-2019"
     },
     {
         "degree": "BSc Math, Math Stat, Comp Sc (1978)",
-        "filename": "bmus-latin"
+        "filename": "bsc-latin"
     }
 ]
