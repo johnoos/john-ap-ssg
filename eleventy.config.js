@@ -1,12 +1,13 @@
-// eleventy.config.js
 export default function(eleventyConfig) {
+  // 1. All configuration methods MUST be inside this function
+  eleventyConfig.addPassthroughCopy("src/assets/img");
+  eleventyConfig.addPassthroughCopy("src/assets/pdfs");
+
+  // 2. Return the configuration object at the end
   return {
     dir: {
-      input: "src",      // Source files
-      includes: "_parts" // Now it looks in src/_parts/
+      input: "src",
+      includes: "_parts" // Located at src/_parts/
     }
   };
 };
-
-eleventyConfig.addPassthroughCopy("src/assets/img"); // For your previews
-eleventyConfig.addPassthroughCopy("src/assets/pdfs"); // For the actual files

@@ -1,0 +1,13 @@
+{   "sidebar-items": 
+    [
+        {"item-type": "Cover letter"},
+        {"item-type": "CV"},
+        {"item-type": "Certificates"},
+        {"item-type": "Academic transcripts"},
+        {"item-type": "Theses"},
+        {"item-type": "Publications"},
+        {"item-type": "References"},
+        {"item-type": "PhD examiner reports"},
+        {"item-type": "Other"}
+    ]
+}

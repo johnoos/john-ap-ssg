@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div id="top-panel-container">{% include "header.html" %}</div>
+    
+    <div class="sidebar-wrapper-style" id="sidebar-panel-container">
+        {% include "sidebar-menu.html" %}
+    </div>
+
+    <main id="content-panel-container" class="fade-in">
+        {{ content | safe }}
+    </main>
+
+    <div id="bottom-panel-container">{% include "footer.html" %}</div>
+
+    <!-- Keep ONLY the toggleMenu and download/view logic in a script here -->
+</body>
+</html>
