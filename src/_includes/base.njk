@@ -2,19 +2,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>{% include "header.html" %}</header>
-    <aside>{% include "sidebar-menu.html" %}</aside>
-    
-    <main>
-        {{ content | safe }} <!-- This is where your page content will go -->
-    </main>
+    <div class="outer-wrapper-style">
+        <header id="top-panel-container" class="top-panel-style"></header>
+        <header id="top-panel-container" class="top-panel-style">
+            {% include "layouts/header.html" %}
+        </header>
 
-    <footer>{% include "footer.html" %}</footer>
-<!-- This script handles only runtime interactivity -->
+
+        {{ content | safe }} <!-- This is where your page content will go -->
+
+
+        <footer>{% include "layouts/footer.html" %}</footer>
+    </div>    
+    <!-- This script handles only runtime interactivity -->
     <script>
         function toggleMenu() {
             document.querySelector('.sidebar-wrapper-style').classList.toggle('open');
