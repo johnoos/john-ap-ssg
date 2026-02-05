@@ -60,31 +60,32 @@ body::after {
   z-index: 10;
 }
 
-/* middle wrapper style */
+/* 1. Reset the Middle Wrapper */
 .middle-wrapper-style {
-  flex: 1; /* Fills all space between header and footer */
   display: flex;
-  /* flex-direction: row; */
-  overflow: hidden; /* Ensures it doesn't push the footer down */
-  /* background: var(--bg); */
-  gap: 20px;
-  align-items: stretch;
+  flex-direction: row; 
+  flex-wrap: nowrap; /* Strictly forbids wrapping to a new line */
+  flex: 1;           /* Fills vertical space between header/footer */
+  width: 100%;       /* Spans full horizontal width */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
+/* 2. Sidebar - Lockdown the width */
 .sidebar-wrapper-style {
-  /*  flex: 1; */
-  display: flex;
+  flex: 0 0 250px;   /* No grow, no shrink, exactly 250px */
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+  margin: 20px;
   background: white;
-  flex: 0 0 250px;
+  overflow: hidden;
   border-radius: 20px;
   border: 2px solid var(--border-color); 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  overflow: hidden; /* ✅ clips scrollbar to rounded corners */
-}  
+} 
 
 .sidebar-panel-style {
-  /* flex: 0 0 250px; */
   background: white;
   overflow-y: auto; /* ✅ scrollbar lives here now */
   margin: 5px;
@@ -138,15 +139,12 @@ body::after {
 
 /* content area */
 .content-wrapper-style {
-  /* flex: 1; */
   display: flex;
   background: white;
-  flex: 1 1 auto;
   border-radius: 20px;
   border: 2px solid var(--border-color);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  margin: 20px 20px 20px 0;
-  overflow: hidden; /* ✅ clips scrollbar to rounded corners */
+  overflow: hidden; 
 }
 
 /* Inner scroll container */
@@ -213,7 +211,7 @@ body::after {
  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.doc-preview img {
+.doc-preview {
  width: 100%;
  aspect-ratio: 4 / 3; /* Uniform height for all previews */
  object-fit: cover;
@@ -262,90 +260,6 @@ body::after {
 
 .btn-view:hover, .btn-download:hover {
  opacity: 0.85;
-}
-
-/* Responsive adjustments for mobile */
-@media screen and (max-width: 768px) {
-    /* Stack the layout vertically */
-    .middle-wrapper-style {
-        flex-direction: column;
-    }
-
-    /* Transform the sidebar into a top-bar */
-    #nav-sidebar {
-        width: 100%;
-        height: auto;
-        display: flex; /* Arrange menu items horizontally */
-        overflow-x: auto; /* Allow horizontal scrolling if items overflow */
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    /* Adjust sidebar items for horizontal layout */
-    .sidebar-item-style {
-        flex: 1; /* Distribute space evenly */
-        text-align: center;
-        padding: 10px 5px;
-        border-left: none;
-        border-bottom: 3px solid transparent; /* Move active marker to bottom */
-        font-size: 0.9rem;
-    }
-
-    /* Update active state for mobile */
-    .sidebar-item-style.active {
-        border-left-color: transparent;
-        border-bottom-color: #007bff; /* Underline instead of side-bar */
-        background-color: transparent;
-    }
-}
-
-/* --- MOBILE DRAWER SYSTEM --- */
-
-@media screen and (max-width: 768px) {
-    /* 1. Allow the body to scroll if needed, but keep outer wrapper constrained */
-    html, body {
-        overflow: auto; 
-    }
-
-    /* 2. Stack the layout */
-    .middle-wrapper-style {
-        flex-direction: column;
-        gap: 0;
-    }
-
-    /* 3. Transform Sidebar into an Off-Canvas Drawer */
-    .sidebar-wrapper-style {
-        position: fixed;
-        top: 0;
-        left: -300px; /* Hidden by default */
-        width: 250px;
-        height: 100vh;
-        margin: 0;
-        z-index: 999;
-        transition: left 0.3s ease-in-out;
-        border-radius: 0 20px 20px 0; /* Rounded only on the right */
-    }
-
-    /* 4. This class is toggled by the JS toggleMenu() function */
-    .sidebar-wrapper-style.open {
-        left: 0;
-    }
-
-    /* 5. Adjust Content Area for mobile */
-    .content-wrapper-style {
-        margin: 10px; /* Give it some breathing room */
-        height: calc(100vh - 220px); /* Adjust based on your header/footer height */
-    }
-
-    /* 6. Grid adjustment for certificates */
-    .doc-grid {
-        grid-template-columns: 1fr; /* Single column on phones */
-        padding: 1rem;
-    }
 }
 
 /* --- MENU BUTTON STYLE --- */

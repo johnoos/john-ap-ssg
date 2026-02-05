@@ -2,20 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title >Academic Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="outer-wrapper-style">
-        <header id="top-panel-container" class="top-panel-style"></header>
-        <header id="top-panel-container" class="top-panel-style">
+
             {% include "layouts/header.html" %}
-        </header>
 
 
-        {{ content | safe }} <!-- This is where your page content will go -->
+            {% block main %}
+            {# Content from index.njk will go here #}
+            {% endblock %}
 
 
-        <footer>{% include "layouts/footer.html" %}</footer>
+            {% include "layouts/footer.html" %}
+
     </div>    
     <!-- This script handles only runtime interactivity -->
     <script>

@@ -1,19 +1,23 @@
----
-layout: base.njk
-title: Sidebar
----
+{% extends "base.njk" %}
+
+{% block main %}
 
 <div class="middle-wrapper-style">
     <div class="sidebar-wrapper-style">  
         <aside id="sidebar-panel-container" class="sidebar-panel-style">
+            
             {% include "partials/sidebar-menu.html" %}
+        
         </aside>
     </div>
-
     <!-- Semantic <main> used for SEO, but logic uses custom ID -->
     <div class="content-wrapper-style">
         <main id="content-panel-container" class="content-panel-style">
+
             {% include "partials/certificates.html" %}
+        
         </main>
     </div>
-</div>    
+</div>
+
+{% endblock %}
