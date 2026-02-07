@@ -1,10 +1,16 @@
 <nav>
   <ul>
     {% for item in sidebar %}
-    <li><a href="/{{ item.name }}/" 
-      class="sidebar-item-style" {% if page.url == item.name %}active{% endif %}>
-        {{ item.type }}
-    </a></li>
+    <!-- construct fragment permalink -->
+    <li><a hx-get="/fragments/{{ item.permalinkname }}/" 
+          hx-target="#content-panel-container"
+          hx-select="#content-panel-container"
+          hx-swap="outerHTML"
+          hx-push-url="true"
+          class="sidebar-item-style" {% if item.default %}active{% endif %}>
+          {{ item.displayname }}
+        </a>
+    </li>
     {% endfor %}
   </ul>
 </nav>

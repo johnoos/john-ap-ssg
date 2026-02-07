@@ -1,18 +1,20 @@
-<div class="doc-grid">
+<section class="doc-grid">
   {% for cert in certificates %}
   <div class="doc-card">
-    <h3>{{ cert.name }}</h3>
-    
-    <!-- THE PREVIEW IMAGE: Page 1 of your PDF -->
-    <img src="assets/img/previews/{{ cert.filename }}.png" alt="{{ cert.name }} preview" class="doc-preview">
-
-    <div class="button-group">
+    <div class="doc-title">
+      <h3>{{ cert.name }}</h3>
+    </div>
+    <div class="doc-preview">
+      <!-- THE PREVIEW IMAGE: Page 1 of your PDF -->
+      <img src="/assets/img/previews/{{ cert.filename }}.png" alt="{{ cert.name }} preview" class="doc-preview">
+    </div>
+    <div class="doc-actions">
       <!-- VIEW BUTTON: Uses the JS listener in your base layout -->
-      <button class="btn-view" data-file="assets/pdfs/{{ cert.filename }}.pdf">View PDF</button>
+      <button class="btn-view" data-file="/assets/pdfs/{{ cert.filename }}.pdf">View</button>
       
       <!-- DOWNLOAD BUTTON: Uses the JS listener in your base layout -->
-      <button class="btn-download" data-file="assets/pdfs/{{ cert.filename }}.pdf">Download</button>
+      <button class="btn-download" data-file="/assets/pdfs/{{ cert.filename }}.pdf">Download</button>
     </div>
   </div>
   {% endfor %}
-</div>
+</section>

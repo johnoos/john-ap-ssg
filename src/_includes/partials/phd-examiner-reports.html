@@ -1,22 +1,19 @@
-
-  
-  <section id="phd-examiner-reports" class="doc-grid">
-    {% for report in phd-examiner-reports %}
-    <article class="doc-card"> 
-      <div class="doc-preview">
-        <!-- PNG Preview Image (Page 1) -->
-        <img src="src/assets/img/previews/{{ report.filename }}.png" alt="PhD examiner report preview" loading="lazy">
-      </div>
-      <div class="doc-title">
-        <h3>Report by {{ report.examiner }}</h3>
-        <div class="doc-actions">
-          <!-- Opens original PDF in new tab -->
-          <a href="src/assets/pdfs/{{ report.filename }}.pdf" target="_blank" class="btn-view">View</a>
-          <!-- Downloads the original PDF -->
-          <a href="src/assets/pdfs/{{ report.filename }}.pdf" download class="btn-download">Download</a>
-        </div>
-      </div>
-    </article>
+<section class="doc-grid">
+  {% for report in phd-examiner-reports %}
+  <div class="doc-card">
+    <div class="doc-title">
+      <h3>Report by {{ report.examiner }}</h3>
+    </div>  
+    <div class="doc-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="src/assets/img/previews/{{ report.filename }}.png" alt="PhD examiner report preview" loading="lazy">
+    </div>
+    <div class="doc-actions">
+      <!-- Opens original PDF in new tab -->
+      <a href="src/assets/pdfs/{{ report.filename }}.pdf" target="_blank" class="btn-view">View</a>
+      <!-- Downloads the original PDF -->
+      <a href="src/assets/pdfs/{{ report.filename }}.pdf" download class="btn-download">Download</a>
+    </div>
+  </div>
     {% endfor %}
-
-  </section>
+</section>

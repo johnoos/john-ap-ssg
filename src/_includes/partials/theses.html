@@ -1,23 +1,19 @@
-
-
-<div class="doc-grid">
+<section class="doc-grid">
   {% for thesis in theses %}
   <div class="doc-card">
-    <article class="thesis">
+    <div class="doc-title">
+      <h3>{{ thesis.degree }}</h3>
+    </div>
     <div class="doc-preview">
       <!-- PNG Preview Image (Page 1) -->
       <img src="assets/img/previews/{{ thesis.filename }}.png" alt="Thesis preview" loading="lazy">
     </div>
-    <div class="doc-title">
-      <h3>{{ thesis.degree }}</h3>
-      <div class="rpt-actions">
-        <!-- Opens original PDF in new tab -->
-        <a href="assets/pdfs/{{ thesis.filename }}.pdf" target="_blank" class="btn-view">View</a>
-        <!-- Downloads the original PDF -->
-        <a href="assets/pdfs/{{ thesis.filename }}.pdf" download class="btn-download">Download</a>
-      </div>
+    <div class="doc-actions">
+      <!-- Opens original PDF in new tab -->
+      <a href="assets/pdfs/{{ thesis.filename }}.pdf" target="_blank" class="btn-view">View</a>
+      <!-- Downloads the original PDF -->
+      <a href="assets/pdfs/{{ thesis.filename }}.pdf" download class="btn-download">Download</a>
     </div>
-  </article>
+  </div>
   {% endfor %}
-
 </section>  

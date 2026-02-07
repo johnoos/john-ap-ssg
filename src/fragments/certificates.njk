@@ -1,0 +1,10 @@
+---
+layout: base.njk
+permalink: /fragments/certificates/
+---
+{% block main %}
+    {# HTMX needs this ID to exist in the FETCHED page to 'select' it #}
+    <div id="content-panel-container">
+        {% include "partials/certificates.html" %}
+    </div>
+{% endblock %}

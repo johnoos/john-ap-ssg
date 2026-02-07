@@ -1,2 +1,20 @@
-
+<section class="doc-grid">
+    {% for pub in publications %}
+  <div class="doc-card">
+    <div class="doc-title">
+      <h3>{{ pub.title }}</h3>
+    </div>  
+    <div class="doc-preview">
+      <!-- PNG Preview Image (Page 1) -->
+      <img src="assets/img/previews/{{ pub.filename }}.png" alt="Publication preview" loading="lazy">
+    </div>
+    <div class="doc-actions">
+      <!-- Opens original PDF in new tab -->
+      <a href="assets/pdfs/{{ pub.filename }}.pdf" target="_blank" class="btn-view">View</a>
+      <!-- Downloads the original PDF -->
+      <a href="assets/pdfs/{{ pub.filename }}.pdf" download class="btn-download">Download</a>
+    </div>
+  </div>
+  {% endfor %}
+</section>
 

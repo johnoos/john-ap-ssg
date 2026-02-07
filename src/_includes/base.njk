@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title >Academic Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="assets/js/htmx.js"></script>
 </head>
 <body>
     <div class="outer-wrapper-style">
@@ -14,7 +15,6 @@
 
 
             {% block main %}
-            {# Content from index.njk will go here #}
             {% endblock %}
 
 
@@ -28,11 +28,23 @@
         }
 
         document.addEventListener('click', (event) => {
+            const link = event.target.closest('.sidebar-item-style');
             const viewBtn = event.target.closest('.btn-view');
             const downloadBtn = event.target.closest('.btn-download');
-
+            
+            /* a sidebar link was clicked most recently */
+            if (link) {
+                // 1. Remove 'active' from all sidebar items
+                document.querySelectorAll('.sidebar-item-style').forEach(el => el.classList.remove('active'));
+                // 2. Add 'active' to the clicked item
+                link.classList.add('active');
+            }
+            
+            /* a view button was clicked most recently */
             if (viewBtn) {
                 window.open(viewBtn.dataset.file, '_blank');
+
+            /* a downloadButton was click most recently */    
             } else if (downloadBtn) {
                 const link = document.createElement('a');
                 link.href = downloadBtn.dataset.file;

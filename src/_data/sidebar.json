@@ -1,11 +1,38 @@
 [
-        {"name": "Cover letter"},
-        {"name": "CV"},
-        {"name": "Certificates"},
-        {"name": "Academic transcripts"},
-        {"name": "Theses"},
-        {"name": "Publications"},
-        {"name": "References"},
-        {"name": "PhD examiner reports"},
-        {"name": "Other"}
-    ] 
+    {
+        "displayname": "Cover letter",
+        "permalinkname": "cover-letter"
+    },
+    {
+        "displayname": "CV",
+        "permalinkname": "cv"
+    },
+    {
+        "displayname": "Certificates",    
+        "permalinkname": "certificates"
+    },
+    {
+        "displayname": "Academic transcripts",
+        "permalinkname": "transcripts"
+    },
+    {
+        "displayname": "Theses",
+        "permalinkname": "theses"
+    },
+    {
+        "displayname": "Publications",
+        "permalinkname": "publications" 
+    },
+    {
+        "displayname": "References",
+        "permalinkname": "references"
+    },
+    {
+        "displayname": "PhD examiner reports",
+        "permalinkname": "phd-examiner-reports"
+    },
+    {
+        "displayname": "Other",
+        "permalinkname": "other"
+    } 
+] 
